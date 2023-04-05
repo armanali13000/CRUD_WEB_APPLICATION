@@ -1,0 +1,9 @@
+package com.crudwebapplication;
+
+public class LoginData {
+	
+	String user;
+	String password;
+	
+	
+}

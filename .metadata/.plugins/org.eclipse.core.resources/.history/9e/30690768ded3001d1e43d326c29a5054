@@ -1,0 +1,31 @@
+<%@page import="com.mysql.cj.xdevapi.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.crudwebapplication.MyDatabase"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+	
+	
+		<%
+			
+			
+			String username = request.getParameter("uname");
+			String password = request.getParameter("pass");
+			
+			MyDatabase myDatabase = new MyDatabase();
+			Connection connection = myDatabase.getMyDatabaseConnection();
+			Statement statement = connection.createStatement();
+			
+		
+		
+		%>
+	
+	
+</body>
+</html>

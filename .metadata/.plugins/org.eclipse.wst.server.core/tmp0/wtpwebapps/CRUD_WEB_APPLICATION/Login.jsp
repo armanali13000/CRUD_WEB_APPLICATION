@@ -127,13 +127,16 @@
             display: block;  
         }
         }
-
+	
+		
 </style>
 
 
 </head>
 <body>
-	
+		
+		
+		
 	
     	<!-- Navbar -->
     	
@@ -160,12 +163,12 @@
                 <h1>Login</h1>
                 <p>Please fill in this form to Login an account.</p>
             </div>
-            <form class="registration" action="Register" method="post">
+            <form class="registration" action="getLogin.jsp" method="get">
                 <table class="formtable">
                     <tbody class="tableborder">
                         <tr>
                             <td><label>Username :</label></td>
-                            <td><input id="input" type="text"></input></td>
+                            <td><input id="input" type="text" name="uname"></input></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -173,7 +176,7 @@
                         </tr>
                         <tr>
                             <td><label>Password :</label></td>
-                            <td><input id="input" type="password"></input></td>
+                            <td><input id="input" type="password" name="pass"></input></td>
                         </tr>
                         <tr>
                         	<td colspan="2">

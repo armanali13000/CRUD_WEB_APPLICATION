@@ -1,0 +1,41 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.crudwebapplication.LoginData"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.crudwebapplication.MyDatabase"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+	
+	
+		<%
+			
+			
+			String username = request.getParameter("uname");
+			String password = request.getParameter("pass");
+			
+			MyDatabase myDatabase = new MyDatabase();
+			Connection connection = myDatabase.getMyDatabaseConnection();
+			Statement statement = connection.createStatement();
+			
+			LoginData loginData = new LoginData();
+			loginData.setUser(username);
+			loginData.setPassword(password);
+			
+			String sql = "select * from register where username='"+username+"' AND password='"+password+"'";
+			ResultSet resultSet = statement.executeQuery(sql);
+			
+			
+		
+		
+		%>
+	
+	
+</body>
+</html>
