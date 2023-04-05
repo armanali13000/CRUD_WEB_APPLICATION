@@ -1,0 +1,52 @@
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.crudwebapplication.MyDatabase"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GetMemberRegister</title>
+</head>
+<body>
+	
+	<%
+	
+	String first_name = request.getParameter("firstname");
+	String last_name = request.getParameter("lastname");
+	String user_name = request.getParameter("username");
+	String email = request.getParameter("email");
+	String password = request.getParameter("password");
+	String confirm_password = request.getParameter("confirm_password");
+	String phone = request.getParameter("phone");
+	String address = request.getParameter("address");
+		
+	String confirm = "Registeration Successfull!";
+	String fail = "Registeration Failed!!!";
+	
+	MyDatabase database = new MyDatabase();	
+	Connection connection = database.getMyDatabaseConnection();
+	Statement statement = connection.createStatement();
+	String sql = "INSERT INTO register(firstname, lastname, username, email, password, confirm_password, phone, address) VALUES ('"+first_name+"','"+last_name+"','"+user_name+"','"+email+"','"+password+"','"+confirm_password+"','"+phone+"','"+address+"')";
+	
+	int rs = statement.executeUpdate(sql);
+	if(rs==1)
+	{
+		//response.sendRedirect("Home.jsp?cnfm="+confirm);
+		response.sendRedirect("Home.jsp");
+	}
+	else
+	{
+		response.sendRedirect("MemberRegister.jsp?err="+fail);
+		//response.sendRedirect("MemberRegister.jsp");
+	}
+	
+	connection.close();
+	
+	%>
+	
+	
+	
+</body>
+</html>
